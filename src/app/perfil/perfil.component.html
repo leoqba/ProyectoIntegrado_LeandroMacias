@@ -1,0 +1,31 @@
+<div class="card text-center">
+    <div class="card-header">
+        Información Personal
+    </div>
+    <div class="card-body">
+        <div class="card" style="width: 18rem;">
+            <tr *ngFor="let cliente of clientes">
+                <td *ngIf="authService.hasRole('ROLE_USER')"><img *ngIf="cliente?.foto" src="http://localhost:8080/api/uploads/img/{{cliente.foto}}" alt="{{cliente.foto}}" class="img-thumbnail rounded" style="width:100px; cursor: pointer;">
+                    <img *ngIf="!cliente?.foto" src="http://localhost:8080/images/no-usuario.png" alt="Sin foto" class="img-thumbnail rounded" style="width:64px; cursor: pointer;">
+            </tr>
+
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+
+
+
+
+                <td *ngIf="authService.hasRole('ROLE_USER')">
+                    <button type="button" name="editar" [routerLink]="['/clientes/form', cliente.id]" class="btn btn-primary btn-sm">editar</button>
+                </td>
+
+            </div>
+        </div>
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    <div class="card-footer text-muted">
+        2 days ago
+    </div>
+</div>

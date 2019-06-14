@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/logo.jpg" width="30" height="30" alt="Responsive image">
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/clinica']">Clinica</a>
+            </li>
+            <!--       <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/perfil']">Perfil de Usuario</a>
+            </li>-->
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/clientes']">Clientes</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+            <li *ngIf="!authService.isAuthenticated()"><a [routerLink]="['/login']" class="btn btn-outline-primary">Sign In</a></li>
+
+            <li *ngIf="authService.isAuthenticated()" class="dropdown">
+                <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{authService.usuario.username}}
+        </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <button (click)="logout()" class="dropdown-item" type="submit">Sign Out</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
